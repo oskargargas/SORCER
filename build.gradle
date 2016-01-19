@@ -55,7 +55,7 @@ task wrapper(type: Wrapper) {
 ext {
     enclaveRepo = "10.131.7.138:7001"
     //enclaveRepo = "10.0.1.9:50001"
-    enclave = InetAddress.getLocalHost().getHostAddress().startsWith("10.131")
+    enclave = InetAddress.getLocalHost().getHostAddress().startsWith("0.0")
 }
 
 apply from: file('gradle/libraries.gradle')
