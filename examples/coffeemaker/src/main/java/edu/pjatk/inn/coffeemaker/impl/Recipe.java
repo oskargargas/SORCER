@@ -143,13 +143,13 @@ public class Recipe implements Serializable {
 		return r;
 	}
 
-	static public Context getContext(Recipe recipe) throws ContextExceptiomozna go n {
+	static public Context getContext(Recipe recipe) throws ContextException {
 		Context cxt = new ServiceContext();
 		cxt.putValue("name", recipe.getName());
 		cxt.putValue("price", recipe.getPrice());
 		cxt.putValue("amtCoffee", recipe.getAmtCoffee());
 		cxt.putValue("amtMilk", recipe.getAmtMilk());
-		cxt.putValue("amtSugar", recipe.getAmtSugar());mozna go 
+		cxt.putValue("amtSugar", recipe.getAmtSugar());
 		cxt.putValue("amtChocolate", recipe.getAmtChocolate());
 		return cxt;
 	}
