@@ -83,12 +83,14 @@ public class Recipe implements Serializable {
 		} 
 	}
     /**
+	 * This method returns the name of the recipe
 	 * @return   Returns the name.
 	 */
     public String getName() {
 		return name;
 	}
     /**
+	 * This method sets name for the recipe
 	 * @param name   The name to set.
 	 */
     public void setName(String name) {
@@ -97,12 +99,14 @@ public class Recipe implements Serializable {
     	}
 	}
     /**
+	 * This method returns price of the recipe
 	 * @return   Returns the price.
 	 */
     public int getPrice() {
 		return price;
 	}
     /**
+	 * This method sets price of the recipe
 	 * @param price   The price to set.
 	 */
     public void setPrice(int price) {
@@ -120,6 +124,14 @@ public class Recipe implements Serializable {
     	return name;
     }
 
+
+	/**
+	 * This method returns Recipe from the given context
+	 * @param context	Context to return the recipe from
+	 * @return Returns the Recipe
+	 * @throws ContextException Might be thrown during context.getValue operation
+	 * @see ContextException
+     */
 	static public Recipe getRecipe(Context context) throws ContextException {
 		Recipe r = new Recipe();
 		r.name = (String)context.getValue("name");
@@ -131,13 +143,13 @@ public class Recipe implements Serializable {
 		return r;
 	}
 
-	static public Context getContext(Recipe recipe) throws ContextException {
+	static public Context getContext(Recipe recipe) throws ContextExceptiomozna go n {
 		Context cxt = new ServiceContext();
 		cxt.putValue("name", recipe.getName());
 		cxt.putValue("price", recipe.getPrice());
 		cxt.putValue("amtCoffee", recipe.getAmtCoffee());
 		cxt.putValue("amtMilk", recipe.getAmtMilk());
-		cxt.putValue("amtSugar", recipe.getAmtSugar());
+		cxt.putValue("amtSugar", recipe.getAmtSugar());mozna go 
 		cxt.putValue("amtChocolate", recipe.getAmtChocolate());
 		return cxt;
 	}
