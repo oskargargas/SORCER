@@ -33,6 +33,7 @@ public class Recipe implements Serializable {
 		return amtChocolate;
 	}
     /**
+	 * This method sets the amount of Chocolate in the Recipe.
 	 * @param amtChocolate   The amtChocolate to set.
 	 */
     public void setAmtChocolate(int amtChocolate) {
@@ -41,12 +42,14 @@ public class Recipe implements Serializable {
 		} 
 	}
     /**
+	 * This method returns amount of Chocolate in the Recipe.
 	 * @return   Returns the amtCoffee.
 	 */
     public int getAmtCoffee() {
 		return amtCoffee;
 	}
     /**
+	 * This method changes the amount of Coffee in the Recipe.
 	 * @param amtCoffee   The amtCoffee to set.
 	 */
     public void setAmtCoffee(int amtCoffee) {
@@ -55,13 +58,15 @@ public class Recipe implements Serializable {
 		} 
 	}
     /**
+	 * This method shows the amount of Milk in the Recipe.
 	 * @return   Returns the amtMilk.
 	 */
     public int getAmtMilk() {
 		return amtMilk;
 	}
     /**
-	 * @param amtMilk   The amtMilk to set.
+	 * This method sets the amount of Milk in the Recipe.
+	 *  @param amtMilk   The amtMilk to set.
 	 */
     public void setAmtMilk(int amtMilk) {
 		if (amtMilk >= 0) {
@@ -69,12 +74,15 @@ public class Recipe implements Serializable {
 		} 
 	}
     /**
+	 * This method returns the amount of Sugar in the Recipe.
 	 * @return   Returns the amtSugar.
 	 */
     public int getAmtSugar() {
 		return amtSugar;
 	}
+
     /**
+	 * This method sets the amount of Sugar in the Recipe.
 	 * @param amtSugar   The amtSugar to set.
 	 */
     public void setAmtSugar(int amtSugar) {
@@ -113,13 +121,20 @@ public class Recipe implements Serializable {
 		if (price >= 0) {
 			this.price = price;
 		} 
-	} 
+	}
+
+	/**
+	 * This method checks if recipes have the same name
+	 * @param r
+	 * @return boolean
+     */
     public boolean equals(Recipe r) {
         if((this.name).equals(r.getName())) {
             return true;
         }
         return false;
     }
+
     public String toString() {
     	return name;
     }
