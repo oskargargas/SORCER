@@ -1,0 +1,1 @@
+All diagrams are designed using (draw.io)[http://draw.io] - a web application integrated with Google Drive. Provided XML files can be edited using draw.io.
