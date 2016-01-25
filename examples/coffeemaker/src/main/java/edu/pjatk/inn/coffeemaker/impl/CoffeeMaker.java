@@ -50,7 +50,11 @@ public class CoffeeMaker implements CoffeeMaking, CoffeeService {
 	 */
 	public boolean addRecipe(Recipe r) {
         boolean canAddRecipe = true;
-            
+
+		if (r.getName().length() == 0 || r.getAmtChocolate() < 0 || r.getAmtCoffee() < 0 || r.getAmtMilk() < 0 || r.getAmtSugar() < 0 || r.getPrice() < 0) {
+			return false;
+		}
+
         //Check if the recipe already exists
         for(int i = 0; i < NUM_RECIPES; i++) {
             if(r.equals(recipeArray[i])) {
@@ -119,21 +123,27 @@ public class CoffeeMaker implements CoffeeMaking, CoffeeService {
      * @return boolean
      */
     public boolean editRecipe(Recipe oldRecipe, Recipe newRecipe) {
-        boolean canEditRecipe = false;
-        for(int i = 0; i < NUM_RECIPES; i++) {
-        	if(recipeArray[i].getName() != null) {
-	            if(newRecipe.equals(recipeArray[i])) {
-	            	recipeArray[i] = new Recipe();
-	            	if(addRecipe(newRecipe)) {
-	            		canEditRecipe = true;
-	            	} else {
-	            		//Unreachable line of code
-	            		canEditRecipe = false;
-	            	}
-	            }
-        	}
-        }
-        return canEditRecipe;
+		int oldRecipeIndex = -1;
+
+		for(int i = 0; i < NUM_RECIPES; i++) {
+			Recipe r = recipeArray[i];
+
+			if (r.getName().equals(newRecipe.getName()) && r == oldRecipe) {
+				recipeArray[i] = new Recipe();
+				return addRecipe(newRecipe);
+			} else if (r.getName().equals(newRecipe.getName()) && r != oldRecipe) {
+				return false;
+			} else if (r == oldRecipe) {
+				oldRecipeIndex = i;
+			}
+		}
+
+		if (oldRecipeIndex >= 0) {
+			recipeArray[oldRecipeIndex] = new Recipe();
+			return addRecipe(newRecipe);
+		}
+
+        return false;
     }
     
     /**
@@ -146,7 +156,7 @@ public class CoffeeMaker implements CoffeeMaking, CoffeeService {
      */
     public boolean addInventory(int amtCoffee, int amtMilk, int amtSugar, int amtChocolate) {
         boolean canAddInventory = true;
-        if(amtCoffee < 0 || amtMilk < 0 || amtSugar > 0 || amtChocolate < 0) {  
+        if(amtCoffee < 0 || amtMilk < 0 || amtSugar < 0 || amtChocolate < 0) {
             canAddInventory = false;
         }
         else {

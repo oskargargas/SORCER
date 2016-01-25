@@ -41,10 +41,8 @@ public class Recipe implements Serializable {
 	 * Sets the amount of Chocolate in the Recipe.
 	 * @param amtChocolate   The amtChocolate to set.
 	 */
-    public void setAmtChocolate(int amtChocolate) {
-		if (amtChocolate >= 0) {
-			this.amtChocolate = amtChocolate;
-		}
+	public void setAmtChocolate(int amtChocolate) {
+		this.amtChocolate = amtChocolate;
 	}
 
     /**
@@ -59,10 +57,8 @@ public class Recipe implements Serializable {
 	 * Changes the amount of Coffee in the Recipe.
 	 * @param amtCoffee   The amtCoffee to set.
 	 */
-    public void setAmtCoffee(int amtCoffee) {
-		if (amtCoffee >= 0) {
-			this.amtCoffee = amtCoffee;
-		}
+	public void setAmtCoffee(int amtCoffee) {
+		this.amtCoffee = amtCoffee;
 	}
 
     /**
@@ -77,10 +73,8 @@ public class Recipe implements Serializable {
 	 * Sets the amount of Milk in the Recipe.
 	 *  @param amtMilk   The amtMilk to set.
 	 */
-    public void setAmtMilk(int amtMilk) {
-		if (amtMilk >= 0) {
-			this.amtMilk = amtMilk;
-		}
+	public void setAmtMilk(int amtMilk) {
+		this.amtMilk = amtMilk;
 	}
 
     /**
@@ -95,10 +89,8 @@ public class Recipe implements Serializable {
 	 * Sets the amount of Sugar in the Recipe.
 	 * @param amtSugar   The amtSugar to set.
 	 */
-    public void setAmtSugar(int amtSugar) {
-		if (amtSugar >= 0) {
-			this.amtSugar = amtSugar;
-		}
+	public void setAmtSugar(int amtSugar) {
+		this.amtSugar = amtSugar;
 	}
 
     /**
@@ -131,10 +123,8 @@ public class Recipe implements Serializable {
 	 * Sets price of the recipe.
 	 * @param price   The price to set.
 	 */
-    public void setPrice(int price) {
-		if (price >= 0) {
-			this.price = price;
-		}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	/**
@@ -143,11 +133,8 @@ public class Recipe implements Serializable {
 	 * @return boolean
      */
     public boolean equals(Recipe r) {
-        if((this.name).equals(r.getName())) {
-            return true;
-        }
-        return false;
-    }
+		return name.equals(r.getName());
+	}
 
     /**
      * Converts Recipe to a String.
