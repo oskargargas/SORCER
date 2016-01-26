@@ -10,12 +10,10 @@ import org.slf4j.LoggerFactory;
 import org.sorcer.test.ProjectContext;
 import org.sorcer.test.SorcerTestRunner;
 import sorcer.service.ContextException;
-import sorcer.service.Exertion;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-import static sorcer.eo.operator.*;
 
 
 @RunWith(SorcerTestRunner.class)
@@ -24,8 +22,7 @@ public class CoffeeMakerAddRecipeTest {
     private final static Logger logger = LoggerFactory.getLogger(CoffeeMakerAddRecipeTest.class);
 
     private CoffeeMaker coffeeMaker;
-    private Inventory inventory;
-    private Recipe coffee, latte, hotChockolade, mocha;
+    private Recipe coffee, latte, hotChocolate, mocha;
 
     @Before
     public void setUp() throws ContextException {
@@ -47,13 +44,13 @@ public class CoffeeMakerAddRecipeTest {
         latte.setAmtSugar(2);
         latte.setAmtChocolate(0);
 
-        hotChockolade = new Recipe();
-        hotChockolade.setName("Hot Chocolate");
-        hotChockolade.setPrice(60);
-        hotChockolade.setAmtCoffee(0);
-        hotChockolade.setAmtMilk(2);
-        hotChockolade.setAmtSugar(2);
-        hotChockolade.setAmtChocolate(3);
+        hotChocolate = new Recipe();
+        hotChocolate.setName("Hot Chocolate");
+        hotChocolate.setPrice(60);
+        hotChocolate.setAmtCoffee(0);
+        hotChocolate.setAmtMilk(2);
+        hotChocolate.setAmtSugar(2);
+        hotChocolate.setAmtChocolate(3);
 
         mocha = new Recipe();
         mocha.setName("Mocha");
