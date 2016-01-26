@@ -126,4 +126,12 @@ public class CoffeeMakerInventoryTest {
         // http://www.scalatest.org/user_guide/using_matchers#checkingThatCodeDoesNotCompile
     }
 
+    @Test
+    public void testCheckInventory1() throws ContextException {
+        assertEquals(inventory.getCoffee(), 15);
+        assertEquals(inventory.getMilk(), 15);
+        assertEquals(inventory.getSugar(), 15);
+        assertEquals(inventory.getChocolate(), 15);
+    }
+
 }
