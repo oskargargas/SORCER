@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("examples/coffeemaker")
 public class CoffeeMakerInventoryTest {
-    private final static Logger logger = LoggerFactory.getLogger(CoffeeMakerTest.class);
+    private final static Logger logger = LoggerFactory.getLogger(CoffeeMakerInventoryTest.class);
 
     private CoffeeMaker coffeeMaker;
     private Inventory inventory;
