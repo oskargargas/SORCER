@@ -90,15 +90,17 @@ public class CoffeeMaker implements CoffeeMaking, CoffeeService {
 	 * @return boolean
 	 */
     public boolean deleteRecipe(Recipe r) {
-        boolean canDeleteRecipe = false;
+		boolean canDeleteRecipe = false;
+
         if(r != null) {
 	        for(int i = 0; i < NUM_RECIPES; i++) {
 	            if(r.equals(recipeArray[i])) {
-	                recipeArray[i] = recipeArray[i];  
+	                recipeArray[i] = new Recipe();
 	                canDeleteRecipe = true;
 	            }
 	        }
         }
+
         return canDeleteRecipe;
     }
 
