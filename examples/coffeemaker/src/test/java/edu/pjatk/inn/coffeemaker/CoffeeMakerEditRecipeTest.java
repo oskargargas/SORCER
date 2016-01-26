@@ -1,7 +1,6 @@
 package edu.pjatk.inn.coffeemaker;
 
 import edu.pjatk.inn.coffeemaker.impl.CoffeeMaker;
-import edu.pjatk.inn.coffeemaker.impl.Inventory;
 import edu.pjatk.inn.coffeemaker.impl.Recipe;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,12 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.sorcer.test.ProjectContext;
 import org.sorcer.test.SorcerTestRunner;
 import sorcer.service.ContextException;
-import sorcer.service.Exertion;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-import static sorcer.eo.operator.*;
+import static org.junit.Assert.assertTrue;
 
 
 @RunWith(SorcerTestRunner.class)
@@ -25,13 +21,11 @@ public class CoffeeMakerEditRecipeTest {
 	private final static Logger logger = LoggerFactory.getLogger(CoffeeMakerEditRecipeTest.class);
 
 	private CoffeeMaker coffeeMaker;
-	private Inventory inventory;
 	private Recipe coffee;
 
 	@Before
 	public void setUp() throws ContextException {
 		coffeeMaker = new CoffeeMaker();
-		inventory = coffeeMaker.checkInventory();
 
 		coffee = new Recipe();
 		coffee.setName("Coffee");
