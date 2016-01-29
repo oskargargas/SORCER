@@ -278,14 +278,16 @@ public class CoffeeMaker implements CoffeeMaking, CoffeeService {
 	}
 
 	private Recipe createRandomRecipe(String name, Integer maxPrice){
-		//TODO jakas 'ladna' logika generowania przypadkowej kawy
+		java.util.Random rng = new java.util.Random();
+
 		Recipe coffee = new Recipe();
 		coffee.setName(name);
-		coffee.setPrice(50);
-		coffee.setAmtCoffee(3);
-		coffee.setAmtMilk(1);
-		coffee.setAmtSugar(1);
-		coffee.setAmtChocolate(0);
+		coffee.setPrice(rng.nextInt(maxPrice));
+		coffee.setAmtCoffee(rng.nextInt(50));
+		coffee.setAmtMilk(rng.nextInt(50));
+		coffee.setAmtSugar(rng.nextInt(50));
+		coffee.setAmtChocolate(rng.nextInt(50));
+
 		return coffee;
 	}
 
