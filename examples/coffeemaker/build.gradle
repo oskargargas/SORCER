@@ -122,8 +122,8 @@ task runRequestor(type:JavaExec, dependsOn:[install]) {
 
     dependsOn([install, bootme])
 //  args = ["edu.pjatk.inn.requestor.CoffeeMakerExertRequestor", "netlet"]
-//    args = ["edu.pjatk.inn.requestor.CoffeeMakerExertRequestor", "exertion"]
-    args = ["edu.pjatk.inn.requestor.CoffeeMakerExertRequestor", "randomCoffeExertion"]
+    args = ["edu.pjatk.inn.requestor.CoffeeMakerExertRequestor", "exertion"]
+//    args = ["edu.pjatk.inn.requestor.CoffeeMakerExertRequestor", "randomCoffeExertion"]
 
 //    args = ["edu.pjatk.inn.requestor.CoffeeMakerExertRequestor", "model"]
     finalizedBy (stopme)
