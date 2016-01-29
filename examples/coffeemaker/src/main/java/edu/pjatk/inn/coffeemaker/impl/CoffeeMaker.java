@@ -276,4 +276,38 @@ public class CoffeeMaker implements CoffeeMaking, CoffeeService {
 
 		return context;
 	}
+
+	private Recipe createRandomRecipe(String name, Integer maxPrice){
+		//TODO jakas 'ladna' logika generowania przypadkowej kawy
+		Recipe coffee = new Recipe();
+		coffee.setName(name);
+		coffee.setPrice(50);
+		coffee.setAmtCoffee(3);
+		coffee.setAmtMilk(1);
+		coffee.setAmtSugar(1);
+		coffee.setAmtChocolate(0);
+		return coffee;
+	}
+
+	@Override
+	public Context getMeSomeRandomCoffee(Context context) throws RemoteException, ContextException {
+		String recipeName = "RandomCoffeeRecipe";
+		int amtPaid = 0;
+		if (context.getValue("coffee/paid") != null) {
+			amtPaid = (Integer) context.getValue("coffee/paid");
+		}
+		Recipe recipe = createRandomRecipe(recipeName, amtPaid);
+		addRecipe(recipe);
+		if (amtPaid != 0){
+			context.putValue("coffee/change", makeCoffee(recipe, amtPaid));
+		}
+		context.putValue("price", recipe.getPrice());
+
+		if (context.getReturnPath() != null) {
+			context.setReturnValue(recipe.getPrice());
+		}
+
+		return context;
+	}
+
 }

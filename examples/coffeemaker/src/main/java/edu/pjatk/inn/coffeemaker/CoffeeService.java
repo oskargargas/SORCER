@@ -16,4 +16,6 @@ public interface CoffeeService {
 
     public Context makeCoffee(Context context) throws RemoteException, ContextException;
 
+    public Context getMeSomeRandomCoffee(Context context) throws RemoteException, ContextException;
+
 }
