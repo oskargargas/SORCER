@@ -68,6 +68,24 @@ public class CoffeeMakerExertRequestor extends ExertRequestor {
         return drinkCoffee;
     }
 
+    private Exertion createRandomCoffeExertion() throws Exception {
+        Task coffee = task("coffee", sig("getMeSomeRandomCoffee", CoffeeService.class), context(
+               // ent("recipe/name", "randomCoffee"),
+                ent("coffee/paid", 120),
+                ent("coffee/change")));
+              //  ent("recipe", getEspressoContext())));
+
+        Task delivery = task("delivery", sig("deliver", Delivery.class), context(
+                ent("location", "PJATK"),
+                ent("delivery/paid"),
+                ent("room", "101")));
+
+        Job drinkCoffee = job(coffee, delivery,
+                pipe(outPoint(coffee, "coffee/change"), inPoint(delivery, "delivery/paid")));
+
+        return drinkCoffee;
+    }
+
     private Model createModel() throws Exception {
         exert(getRecipeTask());
 
